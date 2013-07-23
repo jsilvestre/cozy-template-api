@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Mes Infos - NomDuRéutilisateur</title>
+</head>
+<body>
+    <h1>Mes Infos - Nom du réutilisateur</h1>
+    <p>Présentation du produit / service du réutilisateur, explication du principe de l'application : utiliser les données de Cozy comme une nouvelle source de données pour le produit/service, comment il s'en sert, ce qu'il en fait (transparence pour donner confiance).<br />
+    L'interface est laissée à la discrétion du réutilisateur qui doit déjà des ressources pour personnaliser l'application.
+    </p>
+    <h2>Liaison des comptes</h2>
+    <form action="save-ids" method="post">
+        <label for="login">Nom d'utilisateur
+            <input type="text" name="login" value="<%= conf.login %>" />
+        </label>
+        <label for="password">Mot de passe
+            <input type="password" name="password" value="<%= conf.password %>" />
+        </label>
+        <% if (conf.mustRegister && conf.mustRegister === true) { %>
+        <button type="submit">Lier mon compte REUTILISATEUR à mon Cozy</button>
+        <% } else { %>
+        <button type="submit">Changer mes identifiants</button>
+        <% } %>
+    </form>
+</body>
+</html>

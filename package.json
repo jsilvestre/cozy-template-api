@@ -1,0 +1,22 @@
+{
+  "name": "cozy-api",
+  "version": "0.0.1",
+  "description": "La description de votre application",
+  "main": "server.coffee",
+  "dependencies": {
+    "jugglingdb": "~0.2.0-25",
+    "jugglingdb-cozy-adapter": "~0.3.2",
+    "express": "~3.1.0",
+    "async": "~0.2.9",
+    "cozy-realtime-adapter": "~0.11.0",
+    "request-json": "=0.3.0",
+    "ejs": "~0.8.4"
+  },
+  "scripts": {
+    "start": "coffee server.coffee"
+  },
+  "repository": "https://github.com/jsilvestre/cozy-api",
+  "author": "Cozycloud",
+  "readmeFilename": "README.md",
+  "cozy-permissions": {}
+}
