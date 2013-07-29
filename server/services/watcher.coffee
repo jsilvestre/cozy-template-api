@@ -11,7 +11,8 @@ module.exports = (server) ->
 
     apiManager = new ApiManager ds, (err) ->
 
-        console.log err if err?
+        # Déclenche une erreur tant que l'utilisateur n'a pas entré ses identifiants
+        console.log "Watcher > #{err}" if err?
 
         watchedEvents = Object.keys apiManager.events
         realtime = realtimeInitializer server: server, watchedEvents
@@ -20,8 +21,7 @@ module.exports = (server) ->
             console.log "Event #{event} bound to #{callbackName}."
             realtime.on event, (event, id) ->
                 ds.get "data/#{id}/", (err, response, body) ->
-                    apiManager[callbackName].call(apiManager, event, err, body)
-
+                    apiManager[callbackName].call(apiManager, event, id, err, body)
 
         for event, callbackName of apiManager.events
             callbackFactory(event, callbackName)

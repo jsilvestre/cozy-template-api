@@ -17,13 +17,13 @@ module.exports = class AppConfig
         model.defineRequest 'all', map, (err) ->
             return cb err if err
 
-        model.request 'all', (err, docs) ->
-            return cb err if err
+            model.request 'all', (err, docs) ->
+                return cb err if err
 
-            if docs.length
-                docs[0].updateAttributes config: config, cb
-            else
-                model.create config: config, cb
+                if docs.length
+                    docs[0].updateAttributes config: config, cb
+                else
+                    model.create config: config, cb
 
     getConfig: (cb) ->
         @getModel(@reuName).request 'all', (err, docs) ->
